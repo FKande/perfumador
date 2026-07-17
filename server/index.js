@@ -119,6 +119,7 @@ app.get("/formulas/:id", async (req, res) => {
         fl.id AS line_id,
         fl.grams,
         d.dilution_percent,
+        a.common_name,
         a.scientific_name,
         a.note,
         a.ifra_limit
@@ -144,7 +145,7 @@ app.get("/formulas/:id", async (req, res) => {
   let total_aromatic_grams = 0
   let total_finished_grams = 0
 
-  let resultObj = { id: result.rows[0].formula_id, name: result.rows[0].name, ethanol_grams: result.rows[0].ethanol_grams, lines: [] }
+  let resultObj = { id: result.rows[0].formula_id, name: result.rows[0].name, ethanol_grams: Number(result.rows[0].ethanol_grams), lines: [] }
   for (let i = 0; i < result.rows.length; i++) {
     if (result.rows[i].line_id === null) {
       continue
@@ -152,7 +153,7 @@ app.get("/formulas/:id", async (req, res) => {
     total_aromatic_grams += Number(result.rows[i].grams) * Number(result.rows[i].dilution_percent) / 100
     total_finished_grams += Number(result.rows[i].grams)
 
-    resultObj.lines.push({id: result.rows[i].line_id, scientific_name: result.rows[i].scientific_name, grams: result.rows[i].grams, dilution_percent: result.rows[i].dilution_percent, note: result.rows[i].note, ifra_limit: result.rows[i].ifra_limit })
+    resultObj.lines.push({id: result.rows[i].line_id, common_name: result.rows[i].common_name, scientific_name: result.rows[i].scientific_name, grams: Number(result.rows[i].grams), dilution_percent: Number(result.rows[i].dilution_percent), note: result.rows[i].note, ifra_limit: result.rows[i].ifra_limit === null ? null : Number(result.rows[i].ifra_limit) })
   }
 
   total_finished_grams += Number(result.rows[0].ethanol_grams)

@@ -1,3 +1,5 @@
+/* index.css */
+
 *,
 *::before,
 *::after {
@@ -8,7 +10,7 @@
 
 body {
   font-family: system-ui, -apple-system, sans-serif;
-  line-height: 1.5;
+  line-height: 1;
   color: #1a1a1a;
   background: #f7f8fa;
 }
@@ -16,6 +18,8 @@ body {
 button {
   font: inherit;
   cursor: pointer;
+  width: fit-content;
+  padding: 4px;
 }
 
 input,
@@ -32,4 +36,88 @@ ol {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.basic-vertical-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.vertical-column-16 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.vertical-column-12 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.vertical-column-8 {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.vertical-column-4 {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.horizontal-row-centered-16 {
+  display: flex;
+  flex-direction: row; 
+  gap: 16px;
+}
+
+.horizontal-row-centered-0 {
+  display: flex;
+  flex-direction: column;
+}
+
+.formula-item {
+  padding: 8px;
+  width: fit-content;
+  background-color: gainsboro;
+}
+
+/* table */
+.over-ifra-cell {
+  color: firebrick;
+}
+
+
+/* modals */
+
+.modal-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+  background-color: white;
+  min-width: 300px;
+}
+
+.modal-button-row {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+  width: 100%;
+  flex: 1;
+  justify-content: flex-end;
 }

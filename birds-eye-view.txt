@@ -1,0 +1,10 @@
+Backend: 100% done. All CRUD, aggregation, inventory, IFRA engine. Deployed? No, that's later.
+Frontend, by phase:
+
+Phase 0, skeleton ✅ Router, folders, api layer, env
+Phase 1, formula list ✅ full CRUD, create modal, reusable confirm modal
+Phase 2, formula editor read view 🔄 you are here, fetch works, building the table + IFRA styling now
+Phase 3, editing ⬜ add/delete lines, set ethanol
+Phase 4, live recompute ⬜ the useMemo spreadsheet behavior
+Phase 5, catalog + dilution CRUD ⬜ two more full CRUD screens (aromachemicals, dilutions + inventory view)
+Phase 6, deploy ⬜ Vercel + Render + Neon

@@ -1,0 +1,35 @@
+/* confirm modal css */
+
+.confirm-modal-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.confirm-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+  background-color: white;
+  min-width: 300px;
+}
+
+.confirm-modal-button-row {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+  width: 100%;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.warning-span {
+  color: firebrick;
+}
