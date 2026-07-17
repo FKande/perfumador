@@ -62,50 +62,6 @@ app.patch("/formulas/:id", async (req, res) => {
   return res.status(200).json(result.rows[0])
 })
 
-// {
-//   id: 1,
-//   name: "Simple Rose Accord",
-//   ethanol_grams: "40",
-//   lines: [
-//     {
-//       id: 1,
-//       scientific_name: "Citral (geranial + neral)",
-//       grams: "2",
-//       dilution_percent: "10",
-//       note: "top",
-//       ifra_limit: "0.6"
-//     },
-//     ... (8 more lines)
-//   ]
-// }
-
-// {
-//   id: 1,
-//   name: "Simple Rose Accord",
-//   ethanol_grams: "40",
-
-//   total_aromatic_grams: 5.61,        ← NEW (formula-level)
-//   total_finished_grams: 83,          ← NEW (sum of all line grams + ethanol)
-//   concentration_percent: 6.76,       ← NEW (aromatic / finished × 100)
-
-//   lines: [
-//     {
-//       id: 1,
-//       scientific_name: "Citral (geranial + neral)",
-//       grams: "2",
-//       dilution_percent: "10",
-//       note: "top",
-//       ifra_limit: "0.6",
-
-//       aromatic_grams: 0.2,           ← NEW (2 × 10/100)  [optional but useful]
-//       percent_of_aromatic: 3.57,     ← NEW (0.2 / 5.61 × 100)
-//       percent_of_finished: 0.24,     ← NEW (0.2 / 83 × 100)
-//       over_ifra: false               ← NEW (0.24 > 0.6? no → false)
-//     },
-//     ...
-//   ]
-// }
-
 // get a specific formula
 app.get("/formulas/:id", async (req, res) => {
   const { id } = req.params;
