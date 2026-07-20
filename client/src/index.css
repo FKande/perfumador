@@ -89,6 +89,28 @@ a {
   color: firebrick;
 }
 
+.basic-table-header {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid gainsboro;
+}
+
+.basic-table-cell {
+  padding: 8px;
+  border: 1px solid gainsboro;
+}
+
+.table-select {
+  width: 100%;
+}
+
+.table-dropdown {
+
+}
+
+.table-header-preview-active {
+  color: forestgreen;
+}
 
 /* modals */
 

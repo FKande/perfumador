@@ -26,16 +26,26 @@ app.get("/dilutions", async (req, res) => {
       dilutions.id,
       dilutions.dilution_percent,
       a.scientific_name,
+      a.common_name,
+      a.note,
+      a.ifra_limit,
       COALESCE(SUM(fl.grams),0) AS total_used,
       dilutions.initial_grams - COALESCE(SUM(fl.grams),0) AS remaining
     FROM dilutions
     LEFT JOIN formula_lines fl ON dilutions.id = fl.dilution_id
     LEFT JOIN aromachemicals a ON a.id = dilutions.aromachemical_id
-    GROUP BY dilutions.id, dilutions.dilution_percent, a.scientific_name, dilutions.initial_grams 
-    ORDER BY 
+    GROUP BY dilutions.id, dilutions.dilution_percent, a.scientific_name, a.common_name, a.note, a.ifra_limit, dilutions.initial_grams 
+    ORDER BY
     a.scientific_name ASC
   `);
-  res.json(result.rows);
+  const rows = result.rows.map((row) => ({
+    ...row,
+    dilution_percent: Number(row.dilution_percent),
+    total_used: Number(row.total_used),
+    remaining: Number(row.remaining),
+    ifra_limit: row.ifra_limit === null ? null : Number(row.ifra_limit),
+  }));
+  res.json(rows);
 });
 
 // get all formulas
