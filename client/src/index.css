@@ -112,6 +112,15 @@ a {
   color: forestgreen;
 }
 
+.ethanol-container {
+  padding: 8px;
+  max-width: 50%;
+}
+
+.red-text {
+  color: firebrick;
+}
+
 /* modals */
 
 .modal-overlay {
