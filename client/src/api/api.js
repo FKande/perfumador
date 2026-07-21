@@ -20,6 +20,15 @@ export async function getAromachemicals() {
   return res.json()
 }
 
+export async function createDilution(data) {
+  const res = await fetch(`${BASE}/dilutions`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  })
+  return res.json()
+}
+
 export async function createAromachemical(data) {
   const res = await fetch(`${BASE}/aromachemicals`, {
     method: "POST",
