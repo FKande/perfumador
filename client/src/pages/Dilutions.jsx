@@ -60,7 +60,6 @@ const Dilutions = () => {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Something went wrong.</p>;
-  // if (dilutions.length === 0) return <p>No dilutons yet.</p>
 
   return (
     <section className="basic-vertical-section">
